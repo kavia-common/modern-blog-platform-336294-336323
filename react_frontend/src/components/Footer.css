@@ -1,47 +1,86 @@
-/* THE BLOG - Footer: Figma node 1:324, padding 30px 0, inner 1216px */
+/* =====================
+   THE BLOG - Footer
+   Figma node 1:324 (layout_UX7E9J):
+   column, center, fill, padding 30px 0, gap 64px
+   Inner container (layout_J453PW): row, 1216px, gap 14px
+   Text: style_IZ1UVS Inter 20/400 #1A1A1A
+   ===================== */
 
+/* layout_UX7E9J: column, center, fill, padding 30px 0 */
 .tb-footer {
   background: #FFFFFF;
   width: 100%;
   padding: 30px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
+/* layout_J453PW: row, 1216px, gap 14px */
 .tb-footer-inner {
-  max-width: 1216px;
-  margin: 0 auto;
+  width: 1216px;
+  max-width: 100%;
   padding: 0 16px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   gap: 14px;
   flex-wrap: wrap;
 }
 
-/* style_WS53M1: Inter 20/400 */
-.tb-footer-copy,
+/* style_IZ1UVS: Inter 20/400, #1A1A1A */
+.tb-footer-copy {
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #1A1A1A;
+  white-space: nowrap;
+}
+
+/* Menu: layout_NXYVE6 row, gap 14px */
+.tb-footer-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* style_IZ1UVS: Inter 20/400, #1A1A1A */
 .tb-footer-link {
   font-family: 'Inter', sans-serif;
   font-size: 20px;
   font-weight: 400;
   line-height: 1.2;
   color: #1A1A1A;
-}
-
-.tb-footer-menu {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  flex-wrap: wrap;
-}
-
-.tb-footer-link {
   text-decoration: none;
   transition: color 0.15s;
+  white-space: nowrap;
 }
 
 .tb-footer-link:hover { color: #6941C6; }
 
+/* ====================================================
+   Responsive
+   ==================================================== */
+@media (max-width: 1260px) {
+  .tb-footer-inner {
+    width: 100%;
+    padding: 0 24px;
+  }
+}
+
 @media (max-width: 768px) {
-  .tb-footer-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
-  .tb-footer-copy, .tb-footer-link { font-size: 16px; }
+  .tb-footer-inner {
+    padding: 0 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+  }
+  .tb-footer-copy,
+  .tb-footer-link {
+    font-size: 16px;
+  }
   .tb-footer-menu { gap: 12px; }
 }

@@ -208,7 +208,7 @@ A well-implemented grid system is the foundation of professional, polished UI de
     author: 'Olivia Rhye',
     publishDate: '2023-01-01',
     tags: ['Design', 'Interface'],
-    image: '/assets/blog-card-featured.png',
+    image: '/assets/blog-card-featured-464667.png',
     likes: 64,
     bookmarked: true,
     likedByUser: false,

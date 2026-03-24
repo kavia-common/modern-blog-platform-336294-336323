@@ -1,5 +1,15 @@
 /* =====================
-   THE BLOG - Global Styles
+   THE BLOG - Global App Styles
+   Figma frame 1:30 "THE BLOG Light Mode"
+
+   Design tokens from Figma:
+   - bg: #FFFFFF
+   - text-primary: #1A1A1A
+   - text-muted: #667085
+   - accent: #6941C6 (fill_2JVWZE)
+   - accent-light: #F9F5FF (fill_EKYITE)
+   - border: #EAECF0
+   - toggle-bg: #090D1F (fill_AE7DZL)
    ===================== */
 
 *,
@@ -17,7 +27,7 @@
   --tb-accent-light: #F9F5FF;
   --tb-border: #EAECF0;
 
-  /* Badge colors */
+  /* Badge color tokens (fill_EKYITE etc.) */
   --badge-purple-bg: #F9F5FF;
   --badge-purple-text: #6941C6;
   --badge-blue-bg: #EEF4FF;
@@ -76,6 +86,7 @@ body {
   top: 0;
 }
 
+/* App root: column, min full viewport height */
 .app-root {
   min-height: 100vh;
   display: flex;

@@ -33,7 +33,7 @@ function Navbar() {
         </Link>
 
         {/* Desktop menu */}
-        <ul className="tb-navbar-menu" role="list">
+        <ul className="tb-navbar-menu">
           <li>
             <Link to="/" className={`tb-nav-link${isActive('/') ? ' tb-nav-link--active' : ''}`}>
               Blog
@@ -96,7 +96,7 @@ function Navbar() {
       {/* Mobile dropdown */}
       {menuOpen && (
         <div className="tb-mobile-menu" role="dialog" aria-label="Mobile navigation">
-          <ul className="tb-mobile-links" role="list">
+          <ul className="tb-mobile-links">
             <li>
               <Link to="/" className={`tb-mobile-link${isActive('/') ? ' tb-mobile-link--active' : ''}`} onClick={() => setMenuOpen(false)}>
                 Blog

@@ -1,6 +1,13 @@
 /* =====================
    THE BLOG - HomePage
    Matches Figma frame 1:30 "THE BLOG Light Mode"
+
+   Key layout tokens:
+   - Outer frame: column, hug
+   - Blog sections: column, fill, gap 64px between sections
+   - Each section: column, center, fill, padding 30px 0, gap 64px
+   - Section container: column, 1280px, padding 0 32px, gap 32px
+   - All posts container: column, 1280px, padding 0 32px, gap 30px
    ===================== */
 
 .tb-home {
@@ -12,21 +19,24 @@
 
 /* ====================================================
    HEADER: Giant "THE BLOG" title (Figma 1:53)
-   border-bottom uses stroke_SX4N9A: rgba(0,0,0,0.34) 1px
+   layout_BWNI58: row, width 1216, gap 260px
+   stroke_3SVU46: border-bottom rgba(0,0,0,0.34) 1px top only
    ==================================================== */
 .tb-page-header {
   width: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.34);
   overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .tb-page-header__inner {
-  max-width: 1216px;
-  margin: 0 auto;
+  width: 1216px;
+  max-width: 100%;
   padding: 0 16px;
 }
 
-/* Figma style_4N09GO: Inter 700, ~244px, tight line-height */
+/* style_XPI7FQ: Inter 700, 243.8px, lineHeight ~1.21 */
 .tb-page-title {
   font-family: 'Inter', sans-serif;
   font-size: clamp(64px, 17vw, 244px);
@@ -49,11 +59,13 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  /* Blog frame: column, 1440px wide, stretch children */
+  width: 100%;
 }
 
 /* ====================================================
-   SECTION WRAPPER (Figma layout_USOGCI):
-   padding 30px 0, center-aligned, gap 64px between sections
+   SECTION WRAPPER (Figma layout_VSO2YB):
+   column, center, fill, padding 30px 0, gap 64px
    ==================================================== */
 .tb-section {
   display: flex;
@@ -62,10 +74,11 @@
   width: 100%;
   padding: 30px 0;
   background: #FFFFFF;
+  gap: 64px;
 }
 
-/* Container inside section (Figma layout_UJ4UGD):
-   max 1280px, padding 0 32px, gap 32px */
+/* Container inside section (Figma layout_HGPLDT):
+   column, 1280px fixed, padding 0 32px, gap 32px */
 .tb-section-container {
   width: 100%;
   max-width: 1280px;
@@ -75,18 +88,20 @@
   gap: 32px;
 }
 
-/* "All blog posts" section uses layout_WMP496 gap 30px */
+/* "All blog posts" section container (layout_364NIK):
+   column, 1280px, padding 0 32px, gap 30px */
 .tb-section-container--all-posts {
   gap: 30px;
+  /* Inner heading+content: layout_FX4KU9 width 1216 */
 }
 
-/* Section headings: Display xs/Semibold = 24/600 */
+/* Section headings: Display xs/Semibold = Inter 24/600 #1A1A1A, lineHeight 1.33 */
 .tb-section-heading {
   margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  line-height: 1.33;
+  line-height: 1.3333;
   color: #1A1A1A;
 }
 
@@ -131,13 +146,14 @@
 }
 
 /* ====================================================
-   SECTION 1: Recent blog posts layout (Figma 1:81)
-   Left: large card; Right: column of 2 cards
+   SECTION 1: Recent blog posts layout (Figma 1:81, layout_9AN6U4)
+   row, fill, gap 32px; Left: fill+fill; Right column: fill, gap 32px
    ==================================================== */
 .tb-recent-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 32px;
+  width: 100%;
   align-items: stretch;
 }
 
@@ -146,14 +162,16 @@
   flex-direction: column;
 }
 
+/* Right column: layout_50FMDT column, center, gap 32px */
 .tb-recent-layout__column {
   display: flex;
   flex-direction: column;
-  gap: 32px;
   justify-content: center;
+  gap: 32px;
 }
 
-/* Large left card (Figma 1:85) */
+/* Large left card (Figma 1:85, layout_KLLMN7):
+   column, stretch, gap 32px, fill height */
 .tb-large-card {
   display: flex;
   flex-direction: column;
@@ -161,12 +179,14 @@
   height: 100%;
 }
 
+/* Image area: layout_LMIWYM fill both axes */
 .tb-large-card__image-link {
   display: block;
+  flex: 1;
   overflow: hidden;
   border-radius: 8px;
   text-decoration: none;
-  flex: 1;
+  min-height: 300px;
 }
 
 .tb-large-card__image {
@@ -179,46 +199,60 @@
   border-radius: 8px;
   transition: transform 0.3s ease;
 }
+/* img tag variant */
+.tb-large-card__image[src] {
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.tb-large-card__image--placeholder {
+  background-color: #F2F4F7;
+}
 
 .tb-large-card__image-link:hover .tb-large-card__image {
   transform: scale(1.02);
 }
 
+/* Content area: layout_X3D16A column, stretch, gap 24px */
 .tb-large-card__content {
   display: flex;
   flex-direction: column;
   gap: 24px;
 }
 
+/* Heading group: layout_OPQ78S column, stretch, gap 12px */
 .tb-large-card__heading-group {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-/* Text sm/Semibold #6941C6 */
+/* Author: Text sm/Semibold (14/600) #6941C6 */
 .tb-large-card__author {
   margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.43;
+  line-height: 1.4286;
   color: #6941C6;
 }
 
+/* Title row: layout_OIVI4I row, fill, gap 16px */
 .tb-large-card__title-row {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  width: 100%;
 }
 
-/* Display xs/Semibold: 24/600 */
+/* Display xs/Semibold: Inter 24/600, #1A1A1A */
 .tb-large-card__title {
   margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  line-height: 1.33;
+  line-height: 1.3333;
   color: #1A1A1A;
   flex: 1;
 }
@@ -231,6 +265,7 @@
 
 .tb-large-card__title-link:hover { color: #6941C6; }
 
+/* Icon wrap: layout_B9TBFM column, padding 4px 0 0 */
 .tb-large-card__arrow {
   display: flex;
   align-items: center;
@@ -238,6 +273,7 @@
   padding-top: 4px;
   text-decoration: none;
   transition: transform 0.15s;
+  color: #1A1A1A;
 }
 
 .tb-large-card__arrow:hover { transform: translate(2px, -2px); }
@@ -256,6 +292,7 @@
   overflow: hidden;
 }
 
+/* Categories: layout_A98Z4R row, fill, gap 8px */
 .tb-large-card__badges {
   display: flex;
   flex-wrap: wrap;
@@ -263,20 +300,37 @@
 }
 
 /* ====================================================
-   SECTION 3: All blog posts grid (Figma 1:158)
-   layout_FTR9GU: column, gap 48px
-   layout_288BPD: rows of 3, gap 32px
+   SECTION 3: All blog posts (Figma 1:158)
+   Heading + content (layout_FX4KU9): column, stretch, 1216px, gap 32px
+   Content (layout_89PXSP): column, stretch, fill, gap 48px
+   Rows (layout_YOEGPZ): row, center, fill, gap 32px
+   Card (layout_60BBSD): column, stretch, fill, gap 32px
    ==================================================== */
+
+/* Heading + content wrapper at 1216px internal max */
+.tb-all-posts-heading-content {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  width: 100%;
+  max-width: 1216px;
+  margin: 0 auto;
+}
+
+/* Column of rows: layout_89PXSP column, gap 48px */
 .tb-all-posts-content {
   display: flex;
   flex-direction: column;
   gap: 48px;
+  width: 100%;
 }
 
+/* Each row: layout_YOEGPZ row, center, fill, gap 32px */
 .tb-all-posts-row {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
+  width: 100%;
 }
 
 /* ====================================================
@@ -312,6 +366,18 @@
 /* ====================================================
    RESPONSIVE
    ==================================================== */
+@media (max-width: 1260px) {
+  .tb-section-container,
+  .tb-section-container--all-posts {
+    max-width: 100%;
+  }
+
+  .tb-page-header__inner {
+    width: 100%;
+    padding: 0 24px;
+  }
+}
+
 @media (max-width: 1100px) {
   .tb-all-posts-row {
     grid-template-columns: repeat(2, 1fr);
@@ -323,14 +389,41 @@
   .tb-recent-layout {
     grid-template-columns: 1fr;
   }
+
   .tb-recent-layout__column { gap: 24px; }
+
+  .tb-large-card__image-link {
+    min-height: 220px;
+  }
+
+  .tb-large-card__image {
+    min-height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tb-section-container,
+  .tb-section-container--all-posts {
+    padding: 0 16px;
+  }
+
+  .tb-page-header__inner {
+    padding: 0 16px;
+  }
 }
 
 @media (max-width: 600px) {
   .tb-page-title {
     font-size: clamp(48px, 20vw, 100px);
   }
-  .tb-section-container { padding: 0 16px; }
-  .tb-all-posts-row { grid-template-columns: 1fr; }
-  .tb-section { padding: 20px 0; }
+
+  .tb-all-posts-row {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .tb-section {
+    padding: 20px 0;
+    gap: 32px;
+  }
 }

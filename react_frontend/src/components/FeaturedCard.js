@@ -5,8 +5,16 @@ import { getBadgeStyle } from './BlogCard';
 import './FeaturedCard.css';
 
 /**
- * FeaturedCard - Wide horizontal card for the featured/second blog section.
- * Matches Figma node 1:140 (image-left + content-right, gap 32px).
+ * FeaturedCard - Wide horizontal card for the featured blog section.
+ * Matches Figma node 1:140 (layout_DLJIQ3):
+ *   - row, fill, gap 32px
+ *   - Image: layout_UPJ4IB fill width, height 246px
+ *   - Content (layout_87XOK4): column, stretch, fill, gap 24px
+ *
+ * Contract:
+ *   - Input: post object
+ *   - Output: article JSX
+ *   - Side effects: navigate on delete, context calls for like/bookmark/delete
  *
  * @param {Object} props
  * @param {Object} props.post - Post data object
@@ -38,43 +46,64 @@ function FeaturedCard({ post }) {
 
   return (
     <article className="tb-featured-card" aria-label={`Featured post: ${post.title}`}>
+      {/* Image: layout_UPJ4IB fill width, height 246px */}
       <Link to={`/post/${post.id}`} className="tb-featured-card__image-link" tabIndex="-1" aria-hidden="true">
-        <div
-          className="tb-featured-card__image"
-          style={post.image ? { backgroundImage: `url(${post.image})` } : undefined}
-          role="img"
-          aria-label={`Cover image for ${post.title}`}
-        />
+        {post.image ? (
+          <img
+            className="tb-featured-card__image"
+            src={post.image}
+            alt={`Cover image for ${post.title}`}
+          />
+        ) : (
+          <div
+            className="tb-featured-card__image tb-featured-card__image--placeholder"
+            role="img"
+            aria-label={`Cover image for ${post.title}`}
+          />
+        )}
       </Link>
 
+      {/* Content: layout_87XOK4 column, stretch, fill, gap 24px */}
       <div className="tb-featured-card__content">
+        {/* Heading group: layout_OPQ78S column, stretch, gap 12px */}
         <div className="tb-featured-card__heading-group">
+          {/* Author: Text sm/Semibold #6941C6 */}
           <p className="tb-featured-card__author">{authorLine}</p>
+          {/* Heading + icon: layout_OIVI4I row, fill, gap 16px */}
           <div className="tb-featured-card__title-row">
             <h2 className="tb-featured-card__title">
               <Link to={`/post/${post.id}`} className="tb-featured-card__title-link">{post.title}</Link>
             </h2>
+            {/* Icon wrap: layout_B9TBFM column, padding 4px 0 0 */}
             <Link to={`/post/${post.id}`} className="tb-featured-card__arrow-link" aria-label={`Read ${post.title}`}>
-              <svg width="24" height="24" viewBox="0 0 24 28" fill="none" aria-hidden="true">
+              <svg width="24" height="28" viewBox="0 0 24 28" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
                 <path d="M7 21L17 11M17 11H7M17 11V21" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
           </div>
+          {/* Supporting text: Text md/Normal #667085 */}
           <p className="tb-featured-card__excerpt">{post.excerpt}</p>
         </div>
 
+        {/* Categories: layout_A98Z4R row, fill, gap 8px */}
         <div className="tb-featured-card__badges" aria-label="Post categories">
           {post.tags.slice(0, 3).map(tag => {
             const s = getBadgeStyle(tag);
             return (
-              <button key={tag} className="tb-badge" style={{ backgroundColor: s.bg, color: s.color }}
-                onClick={(e) => handleTagClick(e, tag)} aria-label={`Filter by ${tag}`}>
+              <button
+                key={tag}
+                className="tb-badge"
+                style={{ backgroundColor: s.bg, color: s.color }}
+                onClick={(e) => handleTagClick(e, tag)}
+                aria-label={`Filter by ${tag}`}
+              >
                 {tag}
               </button>
             );
           })}
         </div>
 
+        {/* Action buttons row */}
         <div className="tb-featured-card__actions" aria-label="Post actions">
           <button
             className={`tb-card-action-btn${post.likedByUser ? ' tb-like-btn--active' : ''}`}

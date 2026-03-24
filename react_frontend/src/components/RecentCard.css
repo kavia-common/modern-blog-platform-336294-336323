@@ -1,5 +1,10 @@
-/* THE BLOG - RecentCard: Figma nodes 1:107/1:122 compact horizontal card */
+/* =====================
+   THE BLOG - RecentCard
+   Figma nodes 1:107/1:122: layout_ZLUASY
+   row, fill, gap 24px; image 320×200; content column fill gap 24px
+   ===================== */
 
+/* layout_ZLUASY: row, fill, gap 24px */
 .tb-recent-card {
   display: flex;
   flex-direction: row;
@@ -8,7 +13,7 @@
   width: 100%;
 }
 
-/* 320x200 fixed image per Figma layout_P8EAWW */
+/* Image link: layout_EA8NKC 320×200 fixed */
 .tb-recent-card__image-link {
   display: block;
   flex-shrink: 0;
@@ -19,20 +24,26 @@
   text-decoration: none;
 }
 
+/* Image tag: 100% fill the link container */
 .tb-recent-card__image {
   width: 100%;
   height: 100%;
-  background-color: #F2F4F7;
-  background-size: cover;
-  background-position: center;
+  object-fit: cover;
+  object-position: center;
   border-radius: 8px;
+  display: block;
   transition: transform 0.3s ease;
+}
+
+.tb-recent-card__image--placeholder {
+  background-color: #F2F4F7;
 }
 
 .tb-recent-card__image-link:hover .tb-recent-card__image {
   transform: scale(1.02);
 }
 
+/* Content: layout_87XOK4 column, stretch, fill, gap 24px */
 .tb-recent-card__content {
   flex: 1;
   display: flex;
@@ -41,35 +52,45 @@
   min-width: 0;
 }
 
+/* Heading group: layout_OPQ78S column, stretch, gap 12px */
 .tb-recent-card__heading-group {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
-/* Text sm/Semibold #6941C6 */
+/* Author: Text sm/Semibold (14/600) #6941C6 */
 .tb-recent-card__author {
   margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.43;
+  line-height: 1.4286;
   color: #6941C6;
 }
 
+/* Heading + text column: layout_BVPWKW column, stretch, gap 8px */
+.tb-recent-card__heading-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Title row: row with icon */
 .tb-recent-card__title-row {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  width: 100%;
 }
 
-/* Text lg/Semibold: 18/600 */
+/* Text lg/Semibold: Inter 18/600, lineHeight 1.5556, #1A1A1A */
 .tb-recent-card__title {
   margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: 18px;
   font-weight: 600;
-  line-height: 1.56;
+  line-height: 1.5556;
   color: #1A1A1A;
   flex: 1;
 }
@@ -82,6 +103,7 @@
 
 .tb-recent-card__title-link:hover { color: #6941C6; }
 
+/* Icon wrap: layout_B9TBFM column, padding 4px 0 0 */
 .tb-recent-card__arrow {
   display: flex;
   align-items: center;
@@ -89,11 +111,12 @@
   padding-top: 4px;
   text-decoration: none;
   transition: transform 0.15s;
+  color: #1A1A1A;
 }
 
 .tb-recent-card__arrow:hover { transform: translate(2px, -2px); }
 
-/* Text md/Normal: 16/400 #667085 */
+/* Text md/Normal: 16/400, lineHeight 1.5, #667085 */
 .tb-recent-card__excerpt {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -107,13 +130,35 @@
   overflow: hidden;
 }
 
+/* Categories: layout_A98Z4R row, fill, gap 8px */
 .tb-recent-card__badges {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
+/* ====================================================
+   Responsive
+   ==================================================== */
+@media (max-width: 1100px) {
+  .tb-recent-card__image-link {
+    width: 220px;
+    height: 160px;
+  }
+  .tb-recent-card__image {
+    height: 160px;
+  }
+}
+
 @media (max-width: 900px) {
-  .tb-recent-card { flex-direction: column; }
-  .tb-recent-card__image-link { width: 100%; height: 200px; }
+  .tb-recent-card {
+    flex-direction: column;
+  }
+  .tb-recent-card__image-link {
+    width: 100%;
+    height: 200px;
+  }
+  .tb-recent-card__image {
+    height: 200px;
+  }
 }

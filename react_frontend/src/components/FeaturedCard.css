@@ -1,5 +1,10 @@
-/* THE BLOG - FeaturedCard: Figma node 1:140 horizontal wide card */
+/* =====================
+   THE BLOG - FeaturedCard
+   Figma node 1:140 (layout_DLJIQ3):
+   row, fill, gap 32px; image fill+fixed height 246px; content column fill gap 24px
+   ===================== */
 
+/* layout_DLJIQ3: row, fill, gap 32px */
 .tb-featured-card {
   display: flex;
   flex-direction: row;
@@ -8,30 +13,37 @@
   width: 100%;
 }
 
+/* Image link: layout_UPJ4IB fill width, height 246px fixed */
 .tb-featured-card__image-link {
   display: block;
   flex: 1 1 50%;
   overflow: hidden;
   border-radius: 8px;
   text-decoration: none;
-  min-height: 246px;
+  height: 246px;
+  flex-shrink: 0;
 }
 
+/* Image tag: fill the link container */
 .tb-featured-card__image {
   width: 100%;
-  height: 100%;
-  min-height: 246px;
-  background-color: #F2F4F7;
-  background-size: cover;
-  background-position: center;
+  height: 246px;
+  object-fit: cover;
+  object-position: center;
   border-radius: 8px;
+  display: block;
   transition: transform 0.3s ease;
+}
+
+.tb-featured-card__image--placeholder {
+  background-color: #F2F4F7;
 }
 
 .tb-featured-card__image-link:hover .tb-featured-card__image {
   transform: scale(1.02);
 }
 
+/* Content: layout_87XOK4 column, stretch, fill, gap 24px */
 .tb-featured-card__content {
   flex: 1 1 50%;
   display: flex;
@@ -40,33 +52,38 @@
   justify-content: center;
 }
 
+/* Heading group: layout_OPQ78S column, stretch, gap 12px */
 .tb-featured-card__heading-group {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
+/* Author: Text sm/Semibold (14/600) #6941C6 */
 .tb-featured-card__author {
   margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: 14px;
   font-weight: 600;
-  line-height: 1.43;
+  line-height: 1.4286;
   color: #6941C6;
 }
 
+/* Title row: layout_OIVI4I row, fill, gap 16px */
 .tb-featured-card__title-row {
   display: flex;
   align-items: flex-start;
   gap: 16px;
+  width: 100%;
 }
 
+/* Display xs/Semibold: Inter 24/600, lineHeight 1.333, #1A1A1A */
 .tb-featured-card__title {
   margin: 0;
   font-family: 'Inter', sans-serif;
   font-size: 24px;
   font-weight: 600;
-  line-height: 1.33;
+  line-height: 1.3333;
   color: #1A1A1A;
   flex: 1;
 }
@@ -79,6 +96,7 @@
 
 .tb-featured-card__title-link:hover { color: #6941C6; }
 
+/* Icon wrap: layout_B9TBFM column, padding 4px 0 0 */
 .tb-featured-card__arrow-link {
   display: flex;
   align-items: center;
@@ -86,10 +104,12 @@
   padding-top: 4px;
   text-decoration: none;
   transition: transform 0.15s;
+  color: #1A1A1A;
 }
 
 .tb-featured-card__arrow-link:hover { transform: translate(2px, -2px); }
 
+/* Supporting text: Text md/Normal 16/400 #667085 */
 .tb-featured-card__excerpt {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -99,6 +119,7 @@
   color: #667085;
 }
 
+/* Categories: layout_A98Z4R row, fill, gap 8px */
 .tb-featured-card__badges {
   display: flex;
   flex-wrap: wrap;
@@ -113,17 +134,19 @@
   border-top: 1px solid #EAECF0;
 }
 
-@media (max-width: 768px) {
+/* ====================================================
+   Responsive
+   ==================================================== */
+@media (max-width: 900px) {
   .tb-featured-card {
     flex-direction: column;
   }
   .tb-featured-card__image-link {
     flex: none;
-    height: 200px;
-    min-height: 200px;
+    height: 220px;
+    width: 100%;
   }
   .tb-featured-card__image {
-    height: 200px;
-    min-height: 200px;
+    height: 220px;
   }
 }
