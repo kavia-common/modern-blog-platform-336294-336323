@@ -1,0 +1,54 @@
+.create-page {
+  min-height: calc(100vh - 64px);
+  background: #f9fafb;
+  padding: 40px 24px;
+}
+
+.create-container {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.create-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.create-header-icon {
+  font-size: 48px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.create-title {
+  font-size: 28px;
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 8px;
+  letter-spacing: -0.5px;
+}
+
+.create-subtitle {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0;
+}
+
+.create-editor-card {
+  background: #ffffff;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  padding: 36px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+@media (max-width: 600px) {
+  .create-page {
+    padding: 24px 16px;
+  }
+
+  .create-editor-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+  }
+}

@@ -1,8 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
+test('renders the blog app', () => {
   render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+  // The app renders the NavBar with the BlogHub brand
+  const brandElement = screen.getByText(/BlogHub/i);
+  expect(brandElement).toBeInTheDocument();
 });

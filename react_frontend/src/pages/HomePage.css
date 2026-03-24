@@ -1,0 +1,137 @@
+.home-page {
+  min-height: calc(100vh - 64px);
+}
+
+.home-hero {
+  background: linear-gradient(135deg, #eff6ff 0%, #f0fdf4 100%);
+  border-bottom: 1px solid #e5e7eb;
+  padding: 48px 24px 40px;
+}
+
+.home-hero-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.home-hero-title {
+  font-size: clamp(24px, 4vw, 36px);
+  font-weight: 800;
+  color: #111827;
+  margin: 0 0 12px;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+.home-hero-accent {
+  color: #3b82f6;
+  position: relative;
+}
+
+.home-hero-subtitle {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0 0 16px;
+}
+
+.home-clear-filters {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: #fff;
+  border: 1.5px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.home-clear-filters:hover {
+  background: #f9fafb;
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+/* Layout */
+.home-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 32px 24px;
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Posts grid */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+/* Empty state */
+.home-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 24px;
+  text-align: center;
+  background: #fff;
+  border-radius: 16px;
+  border: 1px dashed #e5e7eb;
+}
+
+.home-empty-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  display: block;
+}
+
+.home-empty-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 8px;
+}
+
+.home-empty-text {
+  font-size: 15px;
+  color: #6b7280;
+  margin: 0 0 20px;
+}
+
+/* Sidebar */
+.home-sidebar {
+  position: sticky;
+  top: 80px;
+}
+
+@media (max-width: 900px) {
+  .home-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .home-sidebar {
+    position: static;
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-hero {
+    padding: 32px 16px 28px;
+  }
+
+  .home-layout {
+    padding: 20px 16px;
+    gap: 20px;
+  }
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+  }
+}
