@@ -1,9 +1,9 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders the blog app', () => {
+test('renders the blog app navbar with brand name', () => {
   render(<App />);
-  // The app renders the NavBar with the BlogHub brand
-  const brandElement = screen.getByText(/BlogHub/i);
+  // THE BLOG Figma design uses "John McLane" as the brand name in the Navbar
+  const brandElement = screen.getByText(/John McLane/i);
   expect(brandElement).toBeInTheDocument();
 });

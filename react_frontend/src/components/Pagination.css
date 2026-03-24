@@ -1,0 +1,78 @@
+/* THE BLOG - Pagination: Figma node 1:291 */
+
+.tb-pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 20px;
+  border-top: 1px solid #EAECF0;
+  gap: 20px;
+}
+
+.tb-pagination__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.43;
+  color: #667085;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.tb-pagination__btn:hover:not(:disabled) { color: #1A1A1A; }
+.tb-pagination__btn:disabled { opacity: 0.4; cursor: default; }
+
+.tb-pagination__numbers {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+/* 40x40 boxes per Figma layout_NZWK9K */
+.tb-pagination__number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #667085;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+.tb-pagination__number:hover { background: #F9F5FF; color: #7F56D9; }
+
+/* Active: fill_0UGA35 = #F9F5FF, fill_MHQ51C = #7F56D9 */
+.tb-pagination__number--active {
+  background: #F9F5FF;
+  color: #7F56D9;
+  font-weight: 600;
+}
+
+.tb-pagination__ellipsis {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: #667085;
+}
+
+@media (max-width: 400px) {
+  .tb-pagination__numbers { display: none; }
+}

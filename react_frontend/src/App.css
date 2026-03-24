@@ -1,5 +1,5 @@
 /* =====================
-   Global Styles & Reset
+   THE BLOG - Global Styles
    ===================== */
 
 *,
@@ -9,40 +9,37 @@
 }
 
 :root {
-  /* Brand Colors */
-  --primary: #3b82f6;
-  --primary-dark: #2563eb;
-  --primary-light: #eff6ff;
-  --secondary: #64748b;
-  --success: #06b6d4;
-  --error: #EF4444;
-  
-  /* Backgrounds */
-  --bg-page: #f9fafb;
-  --bg-surface: #ffffff;
-  --bg-muted: #f3f4f6;
-  
-  /* Text */
-  --text-primary: #111827;
-  --text-secondary: #374151;
-  --text-muted: #6b7280;
-  --text-placeholder: #9ca3af;
-  
-  /* Borders */
-  --border: #e5e7eb;
-  --border-focus: #3b82f6;
+  /* THE BLOG color tokens (matching Figma) */
+  --tb-bg: #FFFFFF;
+  --tb-text-primary: #1A1A1A;
+  --tb-text-muted: #667085;
+  --tb-accent: #6941C6;
+  --tb-accent-light: #F9F5FF;
+  --tb-border: #EAECF0;
 
-  /* Spacing */
+  /* Badge colors */
+  --badge-purple-bg: #F9F5FF;
+  --badge-purple-text: #6941C6;
+  --badge-blue-bg: #EEF4FF;
+  --badge-blue-text: #3538CD;
+  --badge-pink-bg: #FDF2FA;
+  --badge-pink-text: #C11574;
+  --badge-sky-bg: #F0F9FF;
+  --badge-sky-text: #026AA2;
+  --badge-green-bg: #ECFDF3;
+  --badge-green-text: #027A48;
+  --badge-orange-bg: #FFF6ED;
+  --badge-orange-text: #C4320A;
+  --badge-rose-bg: #FFF1F3;
+  --badge-rose-text: #C01048;
+  --badge-slate-bg: #F8F9FC;
+  --badge-slate-text: #363F72;
+
+  /* Spacing / radius */
   --radius-sm: 6px;
   --radius-md: 8px;
   --radius-lg: 12px;
-  --radius-xl: 16px;
-  --radius-2xl: 20px;
-  
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 30px rgba(59, 130, 246, 0.12);
+  --radius-pill: 16px;
 }
 
 html {
@@ -51,11 +48,11 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', 'Roboto', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  color: var(--text-primary);
-  background: var(--bg-page);
+  color: var(--tb-text-primary);
+  background: var(--tb-bg);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -65,7 +62,7 @@ body {
   position: absolute;
   top: -100%;
   left: 0;
-  background: var(--primary);
+  background: var(--tb-accent);
   color: #fff;
   padding: 10px 20px;
   border-radius: 0 0 8px 0;
@@ -83,15 +80,12 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-}
-
-.app-root > main {
-  flex: 1;
+  background: #FFFFFF;
 }
 
 /* Focus styles */
 :focus-visible {
-  outline: 2px solid var(--primary);
+  outline: 2px solid var(--tb-accent);
   outline-offset: 2px;
   border-radius: 4px;
 }
@@ -103,7 +97,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f3f4f6;
+  background: #f9fafb;
 }
 
 ::-webkit-scrollbar-thumb {
